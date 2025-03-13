@@ -1,9 +1,19 @@
+import React from 'react';
+
 export default function App() {
   return (
-    <div className="flex justify-center bg-blue-600 min-h-screen items-center gap-2">
-        <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit"> Buy Now</button>
-        <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit"> Buy Now</button>
-        <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit"> Buy Now</button>
+    <>
+    <div className="flex justify-center min-h-screen items-center">
+      <div className="w-full max-w-xs">
+        <h1 className="text-3xl font-bold mb-2 text-slate-600">Login</h1>
+        <p className='font-medium text-slate-500'> Welcome, please your details</p>
+        <form action="">
+          <div className="mb6">
+            <label htmlFor="" className="block text-sm font-medium text-slate-600">Email</label>
+          </div>
+        </form>
+      </div>
     </div>
+    </>
   )
 }
