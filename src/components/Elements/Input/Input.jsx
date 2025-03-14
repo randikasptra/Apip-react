@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Input = (props) => {
-    const { htmlFor, children } = props;
+    const { htmlFor, children , name} = props;
     return (
         <input
             htmlFor={htmlFor}
