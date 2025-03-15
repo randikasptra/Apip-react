@@ -1,25 +1,25 @@
 import React from 'react'
-import InputForm from '../Input/Input'
-import Button from '../Buttons/Button';
+import InputForm from '../Input/index'
+import Button from '../Button/index';
 
 const FormLogin = () => {
-  return (
-    <form action="" className='mt-5'>
-            <InputForm 
-            label="email" 
-            type="email" 
-            placeholder="example@mail.com" 
-            name="email" 
+    return (
+        <form action="" className='mt-5'>
+            <InputForm
+                label="Email"
+                type="email"
+                placeholder="example@mail.com"
+                name="email"
             />
-            <InputForm 
-            label="password" 
-            type="password" 
-            placeholder="*******" 
-            name="password" 
+            <InputForm
+                label="Password"
+                type="password"
+                placeholder="*******"
+                name="password"
             />
-            <Button className="bg-blue-600 w-full mt-5">Login</Button>
-    </form>
-  )
+            <Button classname="bg-blue-600 w-full">Login</Button>
+        </form>
+    )
 }
 
 export default FormLogin
