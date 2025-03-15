@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Label = () => {
+const Label = (props) => {
   const { htmlFor, children } = props;
   return (
     <label

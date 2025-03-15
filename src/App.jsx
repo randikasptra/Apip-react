@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from './components/Elements/Buttons/Button';
-import Input from './components/Elements/Input/Input';
+import InputForm from './components/Elements/Input';
 
 export default function App() {
   return (
@@ -10,7 +9,11 @@ export default function App() {
           <h1 className="text-3xl font-bold mb-2 text-slate-600">Login</h1>
           <p className='font-medium text-slate-500'> Welcome, please your details</p>
           <form action="">
-           
+            <InputForm 
+            label="email" 
+            type="email" 
+            placeholder="example@mail.com" 
+            name="email" />
           </form>
         </div>
       </div>

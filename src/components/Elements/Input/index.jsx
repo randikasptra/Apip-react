@@ -2,7 +2,7 @@ import React from 'react'
 import Label from './Label'
 import Input from './Input'
 
-const InputForm = () => {
+const InputForm = (props) => {
     const { label, name, placeholder, type } = props;
     return (
         <div className="mb-6">
