@@ -1,6 +1,6 @@
 import React from 'react'
-import InputForm from '../Input/index'
-import Button from '../Button/index';
+import InputForm from '../Elements/Input/index'
+import Button from '../Elements/Button/index';
 
 const FormLogin = () => {
     return (
@@ -22,4 +22,4 @@ const FormLogin = () => {
     )
 }
 
-export default FormLogin
+export default FormLogin;
