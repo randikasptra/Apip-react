@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginPage from './pages/login';
-import RegisterPage from'../src/components/Fragments/FormRegister';
+import RegisterPage from'../src/pages/register';
 
 
 export default function App() {
