@@ -5,11 +5,13 @@ import App from './App.jsx'
 import { BrowserRouter as Router, Routes, Route, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
+import ErrorPage from './pages/404error';
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />
   },
   {
     path: "/login",
