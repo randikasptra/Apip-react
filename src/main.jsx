@@ -10,12 +10,8 @@ import ErrorPage from './pages/404error';
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "/login",
     element: <LoginPage />,
+    elementError: <ErrorPage />,
   },
   {
     path: "/register",
