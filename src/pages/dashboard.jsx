@@ -1,68 +1,78 @@
-import React from "react";
-import { Home, User, Settings } from "lucide-react";
+import React, { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
 const Dashboard = () => {
+  const chartRef = useRef(null);
+  const chartInstance = useRef(null);
+
+  useEffect(() => {
+    const ctx = chartRef.current.getContext("2d");
+
+    // Hancurkan chart sebelumnya jika sudah ada
+    if (chartInstance.current) {
+      chartInstance.current.destroy();
+    }
+
+    // Buat chart baru
+    chartInstance.current = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["20 Mar", "21 Mar", "22 Mar", "23 Mar", "24 Mar"],
+        datasets: [
+          {
+            label: "Jumlah Buku Dipinjam",
+            data: [12, 15, 9, 18, 7],
+            backgroundColor: "rgba(54, 162, 235, 0.5)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    return () => {
+      // Bersihkan chart saat komponen unmount
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
+      }
+    };
+  }, []);
+
   return (
     <div className="bg-[#111827] text-white p-6">
-      <div class="container mx-auto">
-        <h1 class="text-2xl font-bold mb-6">Dashboard Admin</h1>
+      <div className="container mx-auto">
+        <h1 className="text-2xl font-bold mb-6">Dashboard Admin</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div class="bg-[#1F2937] p-4 rounded-lg shadow-md">
-            <h2 class="text-lg">Total Buku</h2>
-            <p class="text-2xl font-bold">1,200</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="bg-[#1F2937] p-4 rounded-lg shadow-md">
+            <h2 className="text-lg">Total Buku</h2>
+            <p className="text-2xl font-bold">1,200</p>
           </div>
-          <div class="bg-[#1F2937] p-4 rounded-lg shadow-md">
-            <h2 class="text-lg">Buku Dipinjam</h2>
-            <p class="text-2xl font-bold">320</p>
+          <div className="bg-[#1F2937] p-4 rounded-lg shadow-md">
+            <h2 className="text-lg">Buku Dipinjam</h2>
+            <p className="text-2xl font-bold">320</p>
           </div>
-          <div class="bg-[#1F2937] p-4 rounded-lg shadow-md">
-            <h2 class="text-lg">Total Pengguna</h2>
-            <p class="text-2xl font-bold">540</p>
+          <div className="bg-[#1F2937] p-4 rounded-lg shadow-md">
+            <h2 className="text-lg">Total Pengguna</h2>
+            <p className="text-2xl font-bold">540</p>
           </div>
-          <div class="bg-[#1F2937] p-4 rounded-lg shadow-md">
-            <h2 class="text-lg">Peminjaman Terlambat</h2>
-            <p class="text-2xl font-bold">28</p>
+          <div className="bg-[#1F2937] p-4 rounded-lg shadow-md">
+            <h2 className="text-lg">Peminjaman Terlambat</h2>
+            <p className="text-2xl font-bold">28</p>
           </div>
         </div>
 
-        <div class="bg-[#1F2937] p-6 rounded-lg shadow-md mb-6">
-          <h2 class="text-xl font-bold mb-4">Aktivitas Terbaru</h2>
-          <table class="w-full text-left">
-            <thead>
-              <tr>
-                <th class="py-2">Nama</th>
-                <th class="py-2">Buku</th>
-                <th class="py-2">Status</th>
-                <th class="py-2">Tanggal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-t border-gray-600">
-                <td class="py-2">Ahmad Fajar</td>
-                <td class="py-2">Harry Potter</td>
-                <td class="py-2 text-yellow-400">Sedang Dipinjam</td>
-                <td class="py-2">10 Mar 2024</td>
-              </tr>
-              <tr class="border-t border-gray-600">
-                <td class="py-2">Siti Aisyah</td>
-                <td class="py-2">Dilan 1990</td>
-                <td class="py-2 text-green-400">Dikembalikan</td>
-                <td class="py-2">8 Mar 2024</td>
-              </tr>
-              <tr class="border-t border-gray-600">
-                <td class="py-2">Rudi Hartono</td>
-                <td class="py-2">Laskar Pelangi</td>
-                <td class="py-2 text-red-400">Terlambat</td>
-                <td class="py-2">5 Mar 2024</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="bg-[#1F2937] p-6 rounded-lg shadow-md">
-          <h2 class="text-xl font-bold mb-4">Grafik Peminjaman Buku Per Hari</h2>
-          <canvas id="chartPeminjaman"></canvas>
+        <div className="bg-[#1F2937] p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-bold mb-4">Grafik Peminjaman Buku Per Hari</h2>
+          <canvas ref={chartRef}></canvas>
         </div>
       </div>
     </div>
