@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
+import { Sidebar } from "lucide-react";
 
 const Dashboard = () => {
   const chartRef = useRef(null);
@@ -48,6 +49,7 @@ const Dashboard = () => {
 
   return (
     <div className="bg-[#111827] text-white p-6">
+      <Sidebar />
       <div className="container mx-auto">
         <h1 className="text-2xl font-bold mb-6">Dashboard Admin</h1>
 
