@@ -7,6 +7,7 @@ import RegisterPage from './pages/register';
 import ErrorPage from './pages/404error';
 import ProductPage from './pages/products';
 import Dasboard from './pages/dashboard';
+import Contact from './pages/contact';
 
 const routes = createBrowserRouter([
   {
@@ -26,7 +27,12 @@ const routes = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dasboard />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
   }
+
   
 ]);
 
