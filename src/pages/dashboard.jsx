@@ -57,7 +57,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex">
+    <div className="">
       {/* Sidebar */}
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
