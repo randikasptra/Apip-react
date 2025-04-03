@@ -1,5 +1,7 @@
 import React from "react";
-import Header from "../Fragments/Header";
+import Header from "../component/Fragments/Header";
+import Sidebar from "../components/Fragments/Sidebar"; // Pastikan path benar
+
 
 const DataAccount = () => {
   const accounts = [
@@ -12,6 +14,7 @@ const DataAccount = () => {
   return (
     <>
       <Header />
+      <Sidebar />
       <div className="bg-[#1F2937] text-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">Data Akun Pengguna</h2>
 

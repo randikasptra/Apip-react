@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
-import Sidebar from "../components//Fragments/Sidebar"; // Pastikan path benar
+import Sidebar from "../components/Fragments/Sidebar"; // Pastikan path benar
 import { FiMenu } from "react-icons/fi";
 import Footer from "../components/Fragments/Footer";
 
